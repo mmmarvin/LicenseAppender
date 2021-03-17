@@ -18,6 +18,7 @@
 ################
 from liapp.runparam import *
 import os
+import pathlib
 
 class LanguageComment:
 	def __init__(self, s, c, e):
@@ -71,9 +72,11 @@ def _read_data(filename):
 
 def _load_license(license, param):
 	ret = []
-	
+		
 	license = license.lower()
-	license_file = os.path.join("licenses",license)
+	license_file = os.path.join(pathlib.Path(__file__).parent.absolute(), "..")
+	license_file = os.path.join(license_file, "licenses")
+	license_file = os.path.join(license_file, license)
 	if os.path.exists(license_file):
 		ret = _read_license(license_file, param)
 	else:
