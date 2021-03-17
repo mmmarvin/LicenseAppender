@@ -7,7 +7,7 @@ A simple python script to help append license information to source code files
 =================
 To run license appender, run:<br>
 ```bash
-python3 lappend.py [flags] [location of files to append license to]<br>
+python3 lappend.py [flags] [location of files to append license to]
 ```
 
    &emsp;&emsp;-l name of license to use<br>
