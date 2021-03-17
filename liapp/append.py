@@ -76,6 +76,9 @@ def _load_license(license, param):
 	license_file = os.path.join("licenses",license)
 	if os.path.exists(license_file):
 		ret = _read_license(license_file, param)
+	else:
+		print("Cannot load license \"" + license + "\"! Please type --help for usage")
+		raise RuntimeError("")
 	
 	return ret
 
@@ -100,7 +103,10 @@ def _add_license(full_filename, extension, license_data):
 		print("Added license to \"" + full_filename + "\"")
 
 def try_add_license(param):
-	license_data = _load_license(param.license, param)
+	try:
+		license_data = _load_license(param.license, param)
+	except:
+		return
 	#print("Adding license:")
 	#for line in license_data:
 		#print(line)
